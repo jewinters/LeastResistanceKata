@@ -19,12 +19,22 @@ class LeastResistanceCalculator {
                 return false
             }
             
-            //Rectangular
             let rowArray = input.characters.split{$0 == "\n"}.map(String.init)
+            //Too few rows
             if rowArray.count == 0 {
                 return false
             }
+            //Too many rows
+            if rowArray.count > 10 {
+                return false
+            }
             let rowSize = rowArray[0].characters.split{$0 == " "}.map(String.init).count
+            //Too many columns
+            if rowSize > 100 {
+                return false
+            }
+            
+            //Rectangular
             for row in rowArray {
                 let charArray = row.characters.split{$0 == " "}.map(String.init)
                 if rowSize != charArray.count {

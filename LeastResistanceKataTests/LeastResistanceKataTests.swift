@@ -46,4 +46,24 @@ class LeastResistanceKataTests: XCTestCase {
         let weirdNegativeInput = "1-12 3\n1 2 -22"
         XCTAssert(subject.validateInput(weirdNegativeInput) == false)
     }
+    
+    func testValidateInputRequiresAtLeastOneRow() {
+        let notEnoughRows = ""
+        XCTAssert(subject.validateInput(notEnoughRows) == false)
+    }
+    
+    func testValidateInputAllowsAtMostTenRows() {
+        let tooManyRows = "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11"
+        XCTAssert(subject.validateInput(tooManyRows) == false)
+    }
+    
+    func testValidateInputRequiresAtLeastOneColumn() {
+        let notEnoughColumns = "\n"
+        XCTAssert(subject.validateInput(notEnoughColumns) == false)
+    }
+    
+    func testValidateInputAllowsAtMostOneHundredColumns() {
+        let tooManyColumns = Array(count:101, repeatedValue:"1").joinWithSeparator(" ")
+        XCTAssert(subject.validateInput(tooManyColumns) == false)
+    }
 }
