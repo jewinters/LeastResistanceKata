@@ -24,17 +24,18 @@ class LeastResistanceKataTests: XCTestCase {
     }
     
     func testValidateInputAcceptsOnlyNumbers() {
-        let non_numeric_input = "asdf"
-        XCTAssert(subject.validateInput(non_numeric_input) == false)
+        let nonNumericInput = "asdf"
+        XCTAssert(subject.validateInput(nonNumericInput) == false)
         
-        let numeric_input = "1\n2\n3\n4\n5"
-        XCTAssert(subject.validateInput(numeric_input) == true)
+        let numericInput = "1\n2\n3\n4\n5"
+        XCTAssert(subject.validateInput(numericInput) == true)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testValidateInputRequiresAllColumnsToHaveTheSameNumberOfRows() {
+        let nonSquareInput = "1 2 3\n1 2 3\n1 2"
+        XCTAssert(subject.validateInput(nonSquareInput) == false)
+        
+        let squareInput = "1 2 3\n1 2 3\n1 2 3"
+        XCTAssert(subject.validateInput(squareInput) == true)
     }
 }
