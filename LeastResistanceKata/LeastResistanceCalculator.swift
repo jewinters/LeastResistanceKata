@@ -13,7 +13,7 @@ class LeastResistanceCalculator {
     func validateInput(input:String) -> Bool {
         do {
             //Numeric
-            let regex = try NSRegularExpression(pattern: "^(\\d|\\s)+$", options: NSRegularExpressionOptions.CaseInsensitive)
+            let regex = try NSRegularExpression(pattern: "^(-?\\d+\\s)*(-?\\d+)$", options: NSRegularExpressionOptions.CaseInsensitive)
             let matches = regex.matchesInString(input, options: [], range: NSMakeRange(0, input.characters.count))
             if matches.count == 0 {
                 return false

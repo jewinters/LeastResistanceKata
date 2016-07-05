@@ -38,4 +38,12 @@ class LeastResistanceKataTests: XCTestCase {
         let squareInput = "1 2 3\n1 2 3\n1 2 3"
         XCTAssert(subject.validateInput(squareInput) == true)
     }
+    
+    func testValidateInputAllowsNegativeIntegers() {
+        let negativeInput = "-1 2 3\n1 2 3"
+        XCTAssert(subject.validateInput(negativeInput) == true)
+        
+        let weirdNegativeInput = "1-12 3\n1 2 -22"
+        XCTAssert(subject.validateInput(weirdNegativeInput) == false)
+    }
 }
