@@ -66,4 +66,11 @@ class LeastResistanceKataTests: XCTestCase {
         let tooManyColumns = Array(count:101, repeatedValue:"1").joinWithSeparator(" ")
         XCTAssert(subject.validateInput(tooManyColumns) == false)
     }
+    
+    func testValidateInputConvertsInputIntoAnArrayOfColumns() {
+        let validInput = "1 2 3\n4 5 6\n7 8 9"
+        subject.validateInput(validInput)
+        
+        XCTAssert(subject.grid == [[1,4,7],[2,5,8],[3,6,9]])
+    }
 }

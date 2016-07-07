@@ -10,6 +10,8 @@ import Foundation
 
 class LeastResistanceCalculator {
     
+    var grid:[[Int]] = []
+    
     func validateInput(input:String) -> Bool {
         do {
             //Numeric
@@ -34,11 +36,20 @@ class LeastResistanceCalculator {
                 return false
             }
             
-            //Rectangular
             for row in rowArray {
-                let charArray = row.characters.split{$0 == " "}.map(String.init)
-                if rowSize != charArray.count {
+                let intArray = row.characters.split{$0 == " "}.map(String.init).map{ Int($0)! }
+                //Rectangular
+                if rowSize != intArray.count {
                     return false
+                }
+                
+                //Build grid as an array of columns
+                for (index, value) in intArray.enumerate() {
+                    if grid.indices.contains(index) {
+                        grid[index].append( value )
+                    } else {
+                        grid.append( [value] )
+                    }
                 }
             }
 
