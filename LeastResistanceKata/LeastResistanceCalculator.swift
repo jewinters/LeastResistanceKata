@@ -31,6 +31,11 @@ class LeastResistanceCalculator {
                 return false
             }
             let rowSize = rowArray[0].characters.split{$0 == " "}.map(String.init).count
+            //Too few columns
+            if rowSize < 5 {
+                return false
+            }
+            
             //Too many columns
             if rowSize > 100 {
                 return false
@@ -38,7 +43,7 @@ class LeastResistanceCalculator {
             
             for row in rowArray {
                 let intArray = row.characters.split{$0 == " "}.map(String.init).map{ Int($0)! }
-                //Rectangular
+                //Non-rectangular
                 if rowSize != intArray.count {
                     return false
                 }
@@ -58,5 +63,12 @@ class LeastResistanceCalculator {
         } catch {
             return false
         }
+    }
+    
+    func calculateLeastResistance(input:String) -> String {
+        if !validateInput(input) {
+            return "Invalid input: please enter a grid of 1 to 10 rows and 5 to 100 columns of integers delimited by spaces.\nExample:\n1 2 3 4 5\n6 7 8 9 10\n-11 12 13 14 15"
+        }
+        return ""
     }
 }

@@ -27,7 +27,7 @@ class LeastResistanceKataTests: XCTestCase {
         let nonNumericInput = "asdf"
         XCTAssert(subject.validateInput(nonNumericInput) == false)
         
-        let numericInput = "1\n2\n3\n4\n5"
+        let numericInput = "1 2 3 4 5\n2 3 4 5 6"
         XCTAssert(subject.validateInput(numericInput) == true)
     }
     
@@ -35,12 +35,12 @@ class LeastResistanceKataTests: XCTestCase {
         let nonSquareInput = "1 2 3\n1 2 3\n1 2"
         XCTAssert(subject.validateInput(nonSquareInput) == false)
         
-        let squareInput = "1 2 3\n1 2 3\n1 2 3"
+        let squareInput = "1 2 3 4 5\n1 2 3 4 5\n1 2 3 4 5"
         XCTAssert(subject.validateInput(squareInput) == true)
     }
     
     func testValidateInputAllowsNegativeIntegers() {
-        let negativeInput = "-1 2 3\n1 2 3"
+        let negativeInput = "-1 2 3 4 5\n1 2 3 4 5"
         XCTAssert(subject.validateInput(negativeInput) == true)
         
         let weirdNegativeInput = "1-12 3\n1 2 -22"
@@ -57,8 +57,8 @@ class LeastResistanceKataTests: XCTestCase {
         XCTAssert(subject.validateInput(tooManyRows) == false)
     }
     
-    func testValidateInputRequiresAtLeastOneColumn() {
-        let notEnoughColumns = "\n"
+    func testValidateInputRequiresAtLeastFiveColumns() {
+        let notEnoughColumns = "1 2 3 4"
         XCTAssert(subject.validateInput(notEnoughColumns) == false)
     }
     
@@ -68,9 +68,14 @@ class LeastResistanceKataTests: XCTestCase {
     }
     
     func testValidateInputConvertsInputIntoAnArrayOfColumns() {
-        let validInput = "1 2 3\n4 5 6\n7 8 9"
+        let validInput = "1 2 3 4 5\n2 3 4 5 6\n3 4 5 6 7"
         subject.validateInput(validInput)
         
-        XCTAssert(subject.grid == [[1,4,7],[2,5,8],[3,6,9]])
+        XCTAssert(subject.grid == [[1,2,3],[2,3,4],[3,4,5],[4,5,6],[5,6,7]])
+    }
+    
+    func testOutputShouldDisplayAHelpfulMessageIfInputIsInvalid() {
+        let invalidInput = "1"
+        XCTAssert(subject.calculateLeastResistance(invalidInput).rangeOfString("Invalid input") != nil)
     }
 }
