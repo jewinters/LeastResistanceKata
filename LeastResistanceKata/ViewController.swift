@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputGrid: UITextView!
     @IBOutlet weak var outputArea: UITextView!
     
+    var leastResistanceCalculator = LeastResistanceCalculator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,8 +25,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func calculateShortestPath(sender: UIButton) {
-        outputArea.text = "SUCCESS"
+        outputArea.text = leastResistanceCalculator.calculateLeastResistance(inputGrid.text)
     }
-    
 }
-
