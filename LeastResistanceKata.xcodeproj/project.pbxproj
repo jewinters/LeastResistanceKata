@@ -44,7 +44,7 @@
 		801D635A1D2C115400DC9A46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801D635C1D2C115400DC9A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		801D63611D2C115400DC9A46 /* LeastResistanceKataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeastResistanceKataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		801D63651D2C115400DC9A46 /* LeastResistanceKataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeastResistanceKataTests.swift; sourceTree = "<group>"; };
+		801D63651D2C115400DC9A46 /* LeastResistanceKataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeastResistanceKataTests.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		801D63671D2C115400DC9A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		801D636C1D2C115400DC9A46 /* LeastResistanceKataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeastResistanceKataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D63701D2C115400DC9A46 /* LeastResistanceKataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeastResistanceKataUITests.swift; sourceTree = "<group>"; };
@@ -490,6 +490,7 @@
 				801D63771D2C115400DC9A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		801D63781D2C115400DC9A46 /* Build configuration list for PBXNativeTarget "LeastResistanceKataTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +499,7 @@
 				801D637A1D2C115400DC9A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		801D637B1D2C115400DC9A46 /* Build configuration list for PBXNativeTarget "LeastResistanceKataUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +508,7 @@
 				801D637D1D2C115400DC9A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
